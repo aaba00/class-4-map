@@ -7,3 +7,16 @@ const map = new mapboxgl.Map({
     center: [-98.4842, 39.0119], // starting position [lng, lat]
     zoom: 1 // starting zoom
     });   
+
+map.on('load', function(){
+  //map.addSource('my-points). {
+    // type: 'geojson',
+    // data: myPoints
+})
+
+map.addLayer({ //every layer must have one source, but one source can power many layers
+  //id: '[data type]-[source]'
+  //type: circle
+  //data: myPoints
+
+})
