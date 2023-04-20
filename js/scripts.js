@@ -9,20 +9,39 @@ const map = new mapboxgl.Map({
 });
 
 map.on('load', () => {
-  map.addSource('homeless_reports', {
+  map.addSource('homeless_reports_points', {
     type: 'geojson',
-    data: 'data/homeless_reports_points.geojson'
+    data: 'data/homeless_reports_points.geojson',
+    cluster: true,
+    clusterMaxZoom: 14,
+    clusterRadius: 25
   }),
 
     map.addLayer({
-      'id': 'reports-layer',
-      'type': 'circle',
-      'source': 'homeless_reports',
-      'paint': {
-        'circle-radius': 4,
-        'circle-stroke-width': 2,
-        'circle-color': 'red',
-        'circle-stroke-color': 'white'
-      }
+      id: 'reports-layer',
+      type: 'circle',
+      source: 'homeless_reports_points',
+      // THE ISSUE - filter returns error: "expected value to be of type number, but found null instead." However, I already filtered out all null values in the "year_n" column in qgis before exporting to geojson..still tinkering
+      //filter: ['==', ['number', ['get', 'year_n']], 2022],
+      paint: {
+        'circle-color': [
+          'step',
+          ['get', 'point_count'],
+          '#51bbd6',
+          100,
+          '#f1f075',
+          750,
+          '#f28cb1'
+        ],
+        'circle-radius': [
+          'step',
+          ['get', 'point_count'],
+          5,
+          100,
+          10,
+          750,
+          20
+        ]
+      },
     });
 });
