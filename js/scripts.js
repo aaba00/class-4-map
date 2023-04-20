@@ -4,8 +4,8 @@ const map = new mapboxgl.Map({
     container: 'map', // container ID
     // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
     style: 'mapbox://styles/mapbox/dark-v11', // style URL
-    center: [-98.4842, 39.0119], // starting position [lng, lat]
-    zoom: 1 // starting zoom
+    center: [-73.99330880814004, 40.73762668306899], // starting position [lng, lat]
+    zoom: 10 // starting zoom
     });   
 
 map.on('load', function(){
