@@ -3,26 +3,33 @@
 
 <head>
     <meta charset="utf-8">
-    <title>location of homeless reports, 2019-2022</title>
+    <title>location of homeless reports, 2022</title>
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
-    <link href="https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.css" rel="stylesheet">
-    <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
+    <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet">
 </head>
 
 <body>
     <div id="map"></div>
     <div id='console'>
-        <h1>location of homeless reports, 2019-2022</h1>
-        <p>Data: <a
+        <h1>location of nyc homeless reports, 2019-2022</h1>
+        <p>a cluster map that details the location of reports related to individuals experiencing homelessness from
+            2019-2022. </p>
+
+        <p>data sourced from nyc 311, a service that allows citizens to communicate issues in their
+            community to nyc government.</p>
+        <p id="dataText">data: <a
                 href="https://data.cityofnewyork.us/Social-Services/311-Service-Requests-from-2010-to-Present/erm2-nwe9">311
                 Service Requests from 2010 to Present</a></p>
-        <p>a cluster map that details the location of 311 calls related to individuals experiencing homelessness from
-            2019-2022</p>
+        <div class='session' id='sliderbar'>
+            <h2>Year: <label id='active-year'>2019</label></h2>
+            <input id='slider' class='row' type='range' min='2019' max='2022' step='1' value='2019' />
+        </div>
     </div>
-    <script src="https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script src="js/scripts.js"></script>
+
 </body>
 
 </html>
